@@ -12,7 +12,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class Get_Request10 extends DammyBaseUrl {
+public class GetRequest10 extends DammyBaseUrl {
 
     /*
     http://dummy.restapiexample.com/api/v1/employees
@@ -42,7 +42,7 @@ public class Get_Request10 extends DammyBaseUrl {
     //  status kodun 200,
     Assert.assertEquals(200,response.statusCode());
 
-  //          gelen body de,
+  //  gelen body de,
   //  5. çalışanın isminin "Airi Satou" olduğunu ,
     Assert.assertEquals("Airi Satou",json.getString("data[4].employee_name"));
 
@@ -69,10 +69,6 @@ public class Get_Request10 extends DammyBaseUrl {
     Assert.assertTrue(json.getList("data.employee_age").containsAll(ages));
 
 
-
-
-
-
-}
+    }
 
 }

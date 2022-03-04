@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class getRequest06 {
+public class GetRequest06 {
 
     /*
     https://restful-booker.herokuapp.com/booking/5 url’ine
