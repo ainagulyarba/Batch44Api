@@ -58,7 +58,7 @@ public class GetRequest10 extends DammyBaseUrl {
   //  "21", "23", "61" yaşlarında employeeler olduğunu test edin
 
    // 1.Yol
-    List<Integer> list=new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
     list.add(21);
     list.add(23);
     list.add(61);
