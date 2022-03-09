@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class GetRequest22 extends HerOkuAppBaseUrl {
 
@@ -80,7 +81,13 @@ public class GetRequest22 extends HerOkuAppBaseUrl {
         Assert.assertEquals(((Map<?, ?>) expectedTestDataMap.get("bookingdates")).get("checkin"), json.getString("bookingdates.checkin"));
         Assert.assertEquals(((Map<?, ?>) expectedTestDataMap.get("bookingdates")).get("checkout"), json.getString("bookingdates.checkout"));
 
-
+        // 3) Matchers Class ile
+        response.then().assertThat().body("firstname", equalTo(expectedTestDataMap.get("firstname"))
+                ,"lastname",equalTo(expectedTestDataMap.get("lastname"))
+                ,"otalprice",equalTo(expectedTestDataMap.get("otalprice"))
+                ,"depositpaid",equalTo(expectedTestDataMap.get("depositpaid"))
+                ,"bookingdates[0]",equalTo(expectedTestDataMap.get(".checkin"))
+                ,"bookingdates[1]",equalTo(expectedTestDataMap.get("checkout")));
 
 
 
