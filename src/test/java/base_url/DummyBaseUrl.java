@@ -4,7 +4,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
-public class DammyBaseUrl {
+public class DummyBaseUrl {
 
 
     protected RequestSpecification spec02;

@@ -1,6 +1,6 @@
 package get_http_request.day10;
 
-import base_url.DammyBaseUrl;
+import base_url.DummyBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
@@ -11,7 +11,7 @@ import java.util.*;
 
 import static io.restassured.RestAssured.given;
 
-public class GetRequest23 extends DammyBaseUrl {
+public class GetRequest23 extends DummyBaseUrl {
 
 
 
@@ -103,6 +103,7 @@ Sondan 3. çalışanın maaşının 675000 olduğunu
     for(int i=0 ; i < ((List)actualDataMap.get("data")).size() ; i++){
         employee_age.add((Integer) ((Map)((List)actualDataMap.get("data")).get(i)).get("employee_age"));
     }
+
 
     // 10. Çalışan bilgilerinin bilgilerinin aşağıdaki gibi
 

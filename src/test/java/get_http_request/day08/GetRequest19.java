@@ -1,18 +1,17 @@
 package get_http_request.day08;
 
-import base_url.DammyBaseUrl;
+import base_url.DummyBaseUrl;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class GetRequest19 extends DammyBaseUrl {
+public class GetRequest19 extends DummyBaseUrl {
 
     /*
     http://dummy.restapiexample.com/api/v1/employees

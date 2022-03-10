@@ -1,13 +1,13 @@
 package get_http_request.day05;
 
-import base_url.DammyBaseUrl;
+import base_url.DummyBaseUrl;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class GetRequest08 extends DammyBaseUrl {
+public class GetRequest08 extends DummyBaseUrl {
 
     /*
    http://dummy.restapiexample.com/api/v1/employees url'inde bulunan

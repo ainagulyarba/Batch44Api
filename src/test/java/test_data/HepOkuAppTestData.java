@@ -40,6 +40,9 @@ public class HepOkuAppTestData {
 
     }
 
+
+public JSONObject setUpTestAndRequestData(){
+
 /*
    https://restful-booker.herokuapp.com/booking
    { "firstname": "Ali",
@@ -52,8 +55,6 @@ public class HepOkuAppTestData {
                }
 
     */
-
-public JSONObject setUpTestAndRequestData(){
 
     JSONObject bookingDates = new JSONObject();
     bookingDates.put("checkin", "2022-03-01");

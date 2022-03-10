@@ -1,17 +1,16 @@
 package get_http_request.day05;
 
-import base_url.DammyBaseUrl;
+import base_url.DummyBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
-public class GetRequest09 extends DammyBaseUrl {
+public class GetRequest09 extends DummyBaseUrl {
 
     /*
     http://dummy.restapiexample.com/api/v1/employee/12 URL'E GiT.
