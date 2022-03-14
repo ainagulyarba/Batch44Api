@@ -1,7 +1,6 @@
 package pojosYeni;
-import javax.annotation.Generated;
 
-@Generated("jsonschema2pojo")
+
 public class Booking {
 
     private String firstname;

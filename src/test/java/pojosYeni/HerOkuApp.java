@@ -1,8 +1,5 @@
 package pojosYeni;
 
-import javax.annotation.Generated;
-
-@Generated("jsonschema2pojo")
 public class HerOkuApp {
 
     private Integer bookingid;
