@@ -1,6 +1,7 @@
 package get_http_request.day10;
 
 import base_url.HerOkuAppBaseUrl;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -8,6 +9,8 @@ import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 import test_data.HepOkuAppTestData;
+
+import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
@@ -86,7 +89,6 @@ olduğunu test edin
 
         Assert.assertEquals(expectedRequestData.getJSONObject("bookingdates").getString("checkin"), json.getString("booking.bookingdates.checkin"));
         Assert.assertEquals(expectedRequestData.getJSONObject("bookingdates").getString("checkout"), json.getString("booking.bookingdates.checkout"));
-
 
 
 

@@ -62,7 +62,8 @@ public class PostRequest02 extends DummyBaseUrl {
                 .body(requestBodyMap)
                 .when()
                 .post("/{1}/{2}/{3}");
-        // POST isleminde Map kullandigimizda toString'e gerek yok  (Sadece Json 'da kullaniyoruz)
+        // POST isleminde  JSONObject kullandigimizda toString gerek var ( .body(expectedRequest.toString()) ) ,
+                        // ama Map kullandigimiza toString'e gerek yok (.body(requestBodyMap))
         
         response.prettyPrint();
 

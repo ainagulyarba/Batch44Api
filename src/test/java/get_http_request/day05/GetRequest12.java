@@ -24,6 +24,10 @@ public class GetRequest12 extends Authentication {
                 .then()
                 .extract()
                 .response();
+        // bu sekilde de calisir:
+        // Response response = given()
+        //        .header("Authorization","Bearer " + generateToken())
+        //        .when().get(endPoint);
 
         response.prettyPeek();
 

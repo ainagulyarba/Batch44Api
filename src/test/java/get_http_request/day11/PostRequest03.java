@@ -52,6 +52,8 @@ public class PostRequest03 extends JsonPlaceHolderBaseUrl {
                 .when()
                 .post("/{1}");
         response.prettyPrint();
+        // POST isleminde  JSONObject kullandigimizda toString gerek var ( .body(expectedRequest.toString()) ) ,
+                    // ama Map kullandigimiza toString'e gerek yok (.body(requestBodyMap))
 
         // 4-Dogrulama
 
@@ -59,8 +61,8 @@ public class PostRequest03 extends JsonPlaceHolderBaseUrl {
         response.then().assertThat().statusCode(201)   // boyle de olur -> .statusCode(expectedRequest.getInt("statusCode"))
                 .body("userId", equalTo(expectedRequest.get("userId"))
                         , "title", equalTo(expectedRequest.get("title"))
-                ,"completed", equalTo(expectedRequest.get("completed"))
-                ,"id", equalTo(expectedRequest.get("id")));
+                        ,"completed", equalTo(expectedRequest.get("completed"))
+                        ,"id", equalTo(expectedRequest.get("id")));
 
         // Json Path
         JsonPath json =response.jsonPath();

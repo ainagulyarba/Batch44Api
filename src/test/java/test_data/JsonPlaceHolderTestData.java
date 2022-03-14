@@ -42,6 +42,9 @@ public class JsonPlaceHolderTestData {
         expectedRequest.put("id", 201);
         return expectedRequest;
 
+      // Map casting yapiyorduk
+      // JSONObject casting yapmaya gerek kalmiyor
+
 
     }
 
