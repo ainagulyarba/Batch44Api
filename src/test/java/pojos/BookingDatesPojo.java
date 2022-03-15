@@ -1,20 +1,20 @@
 package pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingDatesPojo {
-
     /*
-     "bookingdates": {
+    "bookingdates": {
                     "checkin": "2022-03-01",
-                     "checkout": "2022-03-11"
-                     }
-    */
-
-    // 1- private degisken olustur
+                    "checkout": "2022-03-11"
+    }
+     */
+    //1) private değişkenler oluştur.
     private String checkin;
     private String checkout;
 
-    // 2- getter ve setter olustur
-
+    //2) getter ve setter oluştur
 
     public String getCheckin() {
         return checkin;
@@ -32,20 +32,19 @@ public class BookingDatesPojo {
         this.checkout = checkout;
     }
 
-   // 3 - PARAMETRELI ve PARAMETRESIZ CONSTRUCTOR olustur
+    //3) PARAMETRELİ VE PARAMETRESİZ CONSTRUCTOR OLUŞTUR.
 
+    public BookingDatesPojo() {
+    }
 
     public BookingDatesPojo(String checkin, String checkout) {
         this.checkin = checkin;
         this.checkout = checkout;
     }
 
-    public BookingDatesPojo() {
 
 
-    }
-
-    // 4- toString() olustur
+    //4) toString()
 
     @Override
     public String toString() {
@@ -54,9 +53,4 @@ public class BookingDatesPojo {
                 ", checkout='" + checkout + '\'' +
                 '}';
     }
-
-
-
-
-
 }

@@ -11,59 +11,48 @@ import pojos.DummyPojo;
 import static io.restassured.RestAssured.given;
 
 public class GetRequestPojo01 extends DummyBaseUrl {
-
     /*
-    GET Request to the URL http://dummy.restapiexample.com/api/v1/employee/1
+GET Request to the URL http://dummy.restapiexample.com/api/v1/employee/1
                            Status code is 200
-        {
-        "status": "success",
-         "data": {
-                  "id": 1,
-                  "employee_name": "Tiger Nixon",
-                  "employee_salary": 320800,
-                  "employee_age": 61,
-                  "profile_image": ""
-                 },
+{
+ "status": "success",
+ "data": {
+   "id": 1,
+   "employee_name": "Tiger Nixon",
+   "employee_salary": 320800,
+   "employee_age": 61,
+   "profile_image": ""
+   },
  "message": "Successfully! Record has been fetched."
  }
-
 */
-
-@Test
+    @Test
     public void test(){
+        //1) URL OLUSTUR
+        spec02.pathParams("bir", "api", "iki", "v1", "uc", "employee", "dort", 1);
 
-    // 1-Url olustur
-    spec02.pathParams("1","api", "2","v1", "3", "employee", "4", 1);
+        //2) EXPECTED DATA
+        Data data = new Data(1, "Tiger Nixon", 320800, 61,"");
+        System.out.println("data = " + data);
 
-    // 2-expected Data
-    Data data = new Data(1,"Tiger Nixon", 320800, 61, "");
-    System.out.println("data = " + data);
+        DummyPojo expextedData = new DummyPojo("success", data, "Successfully! Record has been fetched.");
+        System.out.println("expextedData = " + expextedData);
 
-    DummyPojo expectedData= new DummyPojo("success", data, "Successfully! Record has been fetched.");
-    System.out.println("expectedData = " + expectedData);
+        //3) REQUEST ve RESPONSE
+        Response response = given().contentType(ContentType.JSON).spec(spec02)
+                .when()
+                .get("/{bir}/{iki}/{uc}/{dort}");
 
-    // 3- Response ve Request
-    Response response = given().contentType(ContentType.JSON).spec(spec02)
-            .when().get("/{1}/{2}/{3}/{4}");
+        response.prettyPrint();
 
-    response.prettyPrint();
-
-    // 4-Dogrulama
-    DummyPojo actual=response.as(DummyPojo.class);
-    System.out.println("actual = " + actual);
-
-    Assert.assertEquals(expectedData.getStatus(),actual.getStatus());
-
-    Assert.assertEquals(expectedData.getData().getId(),actual.getData().getId());
-    Assert.assertEquals(expectedData.getData().getEmployee_name(),actual.getData().getEmployee_name());
-    Assert.assertEquals(expectedData.getData().getEmployee_salary(),actual.getData().getEmployee_salary());
-    Assert.assertEquals(expectedData.getData().getEmployee_age(),actual.getData().getEmployee_age());
-    Assert.assertEquals(expectedData.getData().getProfile_image(),actual.getData().getProfile_image());
-
-    Assert.assertEquals(expectedData.getMessage(),actual.getMessage());
-
-
-}
-
-
+        //4) DOĞRULAMA
+        DummyPojo actual=response.as(DummyPojo.class);
+        Assert.assertEquals(expextedData.getStatus(),actual.getStatus());
+        Assert.assertEquals(expextedData.getData().getId(),actual.getData().getId());
+        Assert.assertEquals(expextedData.getData().getEmployee_name(),actual.getData().getEmployee_name());
+        Assert.assertEquals(expextedData.getData().getEmployee_salary(),actual.getData().getEmployee_salary());
+        Assert.assertEquals(expextedData.getData().getEmployee_age(),actual.getData().getEmployee_age());
+        Assert.assertEquals(expextedData.getData().getProfile_image(),actual.getData().getProfile_image());
+        Assert.assertEquals(expextedData.getMessage(),actual.getMessage());
+    }
 }

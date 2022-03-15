@@ -1,26 +1,29 @@
 package pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Data {
-
-  /*  "data": {
-                 "id": 1,
+    /*
+     "data": {
+                "id": 1,
                 "employee_name": "Tiger Nixon",
-                "employee_salary": 320800,
-                "employee_age": 61,
-                "profile_image": ""
-               }
-   */
+               "employee_salary": 320800,
+               "employee_age": 61,
+               "profile_image": ""
+            }
+     */
 
-    // 1- private variable olstur
+    //1) private değişkenleri olustur.
 
     private int id;
     private String employee_name;
     private int employee_salary;
     private int employee_age;
-    private String profile_image;
+    private  String profile_image;
 
+    //2) getter and setter
 
-    // 2- getter setter olustur
     public int getId() {
         return id;
     }
@@ -61,10 +64,9 @@ public class Data {
         this.profile_image = profile_image;
     }
 
-    // 3-Parametreli ve Parametresiz Constructor
+    //3) Parametreli ve Parametresiz Constructor
 
     public Data() {
-
     }
 
     public Data(int id, String employee_name, int employee_salary, int employee_age, String profile_image) {
@@ -75,8 +77,7 @@ public class Data {
         this.profile_image = profile_image;
     }
 
-   // 4-toString()
-
+    //4) toString()
 
     @Override
     public String toString() {
@@ -88,7 +89,4 @@ public class Data {
                 ", profile_image='" + profile_image + '\'' +
                 '}';
     }
-
-
-
 }

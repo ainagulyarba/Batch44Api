@@ -1,31 +1,28 @@
 package pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DummyPojo {
 
-      /*
-    GET Request to the URL http://dummy.restapiexample.com/api/v1/employee/1
-                           Status code is 200
-        {
-        "status": "success",
-         "data": {
-                  "id": 1,
-                  "employee_name": "Tiger Nixon",
-                  "employee_salary": 320800,
-                  "employee_age": 61,
-                  "profile_image": ""
-                 },
-        "message": "Successfully! Record has been fetched."
- }
 
+    /*
+GET Request to the URL http://dummy.restapiexample.com/api/v1/employee/1
+                       Status code is 200
+{
+"status": "success",
+"data": {
+,
+"message": "Successfully! Record has been fetched."
+}
 */
-
-
-    // 1- Variable olustur
+    //1)
     private String status;
     private Data data;
     private String message;
 
-    // getter ve setter
+    //2)
+
     public String getStatus() {
         return status;
     }
@@ -50,7 +47,7 @@ public class DummyPojo {
         this.message = message;
     }
 
-    // P ve P'siz Constructor
+    //3)
 
     public DummyPojo() {
     }
@@ -61,7 +58,7 @@ public class DummyPojo {
         this.message = message;
     }
 
-    // toString()
+    //4) toString()
 
     @Override
     public String toString() {
@@ -71,8 +68,4 @@ public class DummyPojo {
                 ", message='" + message + '\'' +
                 '}';
     }
-
-
-
-
 }

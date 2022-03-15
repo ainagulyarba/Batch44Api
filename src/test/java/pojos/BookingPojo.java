@@ -1,29 +1,34 @@
 package pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingPojo {
 
-  /*  "booking": {
-                "firstname": "Ali",
-                "lastname": "Can",
-                "totalprice": 500,
-                "depositpaid": true,
-          "bookingdates": {
-                 "checkin": "2022-03-01",
-                  "checkout": "2022-03-11"
-                             }
-                         }
-   */
+    /*
+      {
+     "bookingid": 11,
+            "booking": {
+                    "firstname": "Ali",
+                    "lastname": "Can",
+                    "totalprice": 500,
+                    "depositpaid": true,
+                    "bookingdates": {
+                                    "checkin": "2022-03-01",
+                                    "checkout": "2022-03-11"
+                              }
+                          }
+                      }
+     */
 
-    // 1- private degisken olustur
-
+    //1) private değişken oluştur.
     private String firstname;
     private String lastname;
     private int totalprice;
     private boolean depositpaid;
-    private BookingDatesPojo bookingDatesPojo;
+    private BookingDatesPojo bookingdates;
 
-
-    // 2- getter ve setter olustur
+    //2) getter ve setter olustur
 
     public String getFirstname() {
         return firstname;
@@ -57,32 +62,30 @@ public class BookingPojo {
         this.depositpaid = depositpaid;
     }
 
-    public BookingDatesPojo getBookingDatesPojo() {
-        return bookingDatesPojo;
+    public BookingDatesPojo getBookingdates() {
+        return bookingdates;
     }
 
-    public void setBookingDatesPojo(BookingDatesPojo bookingDatesPojo) {
-        this.bookingDatesPojo = bookingDatesPojo;
+    public void setBookingdates(BookingDatesPojo bookingdates) {
+        this.bookingdates = bookingdates;
     }
 
 
-    // 3 - PARAMETRELI ve PARAMETRESIZ CONSTRUCTOR olustur
+    //3) Parametreli ve Parametresiz Constructor
 
+    public BookingPojo() {
+    }
 
-    public BookingPojo(String firstname, String lastname, int totalprice, boolean depositpaid, BookingDatesPojo bookingDatesPojo) {
+    public BookingPojo(String firstname, String lastname, int totalprice, boolean depositpaid, BookingDatesPojo bookingdates) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.totalprice = totalprice;
         this.depositpaid = depositpaid;
-        this.bookingDatesPojo = bookingDatesPojo;
+        this.bookingdates = bookingdates;
     }
 
+    //4) toString()
 
-    public BookingPojo() {
-
-    }
-
-    // 4- toString() olustur
 
     @Override
     public String toString() {
@@ -91,12 +94,7 @@ public class BookingPojo {
                 ", lastname='" + lastname + '\'' +
                 ", totalprice=" + totalprice +
                 ", depositpaid=" + depositpaid +
-                ", bookingDatesPojo=" + bookingDatesPojo +
+                ", bookingdates=" + bookingdates +
                 '}';
     }
-
-
-
-
-
 }
