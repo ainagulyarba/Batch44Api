@@ -1,60 +1,77 @@
 
-   /*     1) API testlerinde Web Driver kullanıyor musunuz? Hangi dependencies'leri kullanıyorsunuz?
-        API testlerinde, UI testleri için gerekli Web Driver dependencies'lere ihtiyaç yoktur.
-        Başlangıç için Rest-Assured veye JUnit ve TEstNG gibi dependencies'ler yeterli olur.
+   /*   API DERSİNDE NELER ÖĞRENDİNİZ?
 
-        2) Doğrulama için kullanılan, Hard Assert ve Verification farkları nelerdir?
-        Hard Assert kullandığımızda ilk hata olan yerde test durur.
-        Verification'da; testler hata olsa dahi çalışır. Hatalı olan test için hata mesajı alınır.
-        ÖNEMLİ: Soft Assert = Verification
+    * POSTMAN
 
-        3) API testlerinde request nasıl tanımlanır?
-        given().when().get() içerisinde tanımlanır.
+    * Rest Assured: REST API'lerini test etmek ve doğrulamak için kullanılan
+                    Open Source (Açık Kaynak) bir Java kütüphanesidir.
 
-        4) Request'ten gelen cevap (response) nerede saklanır?
-        Response response'un içerisinde.
+    * JUnit Assert'leri kullanılarak doğrulama
 
-        5) assertThat() Hard mı yoksa Soft Assert müdür?
-        assertThat() Hard assertion'dır.
+    * Json Path kullanarak doğrulama
+        JsonPath() json = response.JsonPath();
 
-        6) API Testlerinde response doğrulma nasıl yapılır?
-        a) TestNG ve JUnit Assert'leri kullanılarak
-        b) Json Path -> JsonPath() json = response.JsonPath();
-        c) Matchers Class
-        d) De-Serialization
+    * Matchers Class kullanarak doğrulama
+        http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html
+
+        Matchers.equalto(): Key-Value şeklinde girilen datanın, eşit olduğunu doğrulamak için kullanılır.
+        Matchers.hasSize(): Datanın size'ını doğrulamak için kullanılır.
+        Matchers.hasItem(): Girilen tek bir data'yı doğrulamak için kullanılır.
+        Matchers.hasItems(): Girilen birden fazla datayı doğrulamak için kullanılır.
+
+    * De-Serialization: JSON formatını Javaya dönüştürme
         HashMap<String, Object> actualData = response.as(HashMap.class);
-        e) JSON Object
-        f)
-        g)
-        h)
 
-        7) Matchers.equalto(): Key-Value şeklinde girilen datanın, eşit olduğunu doğrulamak için kullanılır.
+    * Serialization: Java yapısında olan dataları JSON'a dönüştürme
+        Gson gson = new Gson();
+        String jsonFromJava = gson.toJson(actual);
 
-        8) Matchers.hasSize(): Datanın size'ını doğrulamak için kullanılır.
+    * JSON Object
+        JsonPlaceHolderTestData testObje = new JsonPlaceHolderTestData();
+        JSONObject expectedRequest = testObje.setUpPostData();
 
-        9) Matchers.hasItem(): Girilen tek bir data'yı doğrulamak için kullanılır.
+    * Pojo Class (Plain Old Java Object)
 
-        10) Matchers.hasItems(): Girilen birden fazla datayı doğrulamak için kullanılır.
+    * ObjectMapper: JSON ve POJO (Plain Old Java Objects) okuma ve yazma işlevlerinin yanı sıra
+        dönüştürmeleri gerçekleştirmek için de kullanılır.
 
-        11) Matcher Class: http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html
+    * API den alınan response'ları bilgisayara text dosyası olarak kaydetme ve doğrulama yapma.
 
-
-
-        TEST iÇiN KULLANILAN ADRESLER
-
-        https://restful-booker.herokuapp.com/booking
-
-        https://reqres.in/api/users
-
-        http://dummy.restapiexample.com/api/v1/employee
-
-        https://jsonplaceholder.typicode.com/
-
-        https://www.gmibank.com/api/authenticate
-
-        http://www.gmibank.com/api/tp-customers
+    * Reusable method oluşturma.
 
 
+1) API testlerinde Web Driver kullanıyor musunuz? Hangi dependencies'leri kullanıyorsunuz?
+   API testlerinde, UI testleri için gerekli Web Driver dependencies'lere ihtiyaç yoktur.
+   Başlangıç için Rest-Assured veye JUnit ve TEstNG gibi dependencies'ler yeterli olur.
+
+2) Doğrulama için kullanılan, Hard Assert ve Verification farkları nelerdir?
+   Hard Assert kullandığımızda ilk hata olan yerde test durur.
+   Verification'da; testler hata olsa dahi çalışır. Hatalı olan test için hata mesajı alınır.
+   ÖNEMLİ: Soft Assert = Verification
+
+3) API testlerinde request nasıl tanımlanır?
+   given().when().get() içerisinde tanımlanır.
+
+4) Request'ten gelen cevap (response) nerede saklanır?
+   Response response'un içerisinde.
+
+5) assertThat() Hard mı yoksa Soft Assert müdür?
+   assertThat() Hard assertion'dır.
+
+
+TEST iÇiN KULLANILAN ADRESLER
+
+https://restful-booker.herokuapp.com/booking
+
+https://reqres.in/api/users
+
+http://dummy.restapiexample.com/api/v1/employee
+
+https://jsonplaceholder.typicode.com/
+
+https://www.gmibank.com/api/authenticate
+
+http://www.gmibank.com/api/tp-customers
 
    /*
    http://dummy.restapiexample.com/api/v1/employees url ine bir istek gönderildiğinde
